@@ -3,20 +3,19 @@ package hometasks.lesson9.b1;
 import java.util.Arrays;
 
 public class Array<T> {
-    private int arrayLength = 10;
+    private static int arrayLength = 4;
     Object[] array = new Object[arrayLength];
 
-    public Object isArrayFullOrNot() {
-        int howManyFullPositionsInArray = 0;
+    public void isArrayFullOrNot() {
+        int howManyNotFullPositionsInArray = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] == null) {
-                howManyFullPositionsInArray++;
+                howManyNotFullPositionsInArray++;
             }
         }
-        if (howManyFullPositionsInArray > 0) {
+        if (howManyNotFullPositionsInArray > 0) {
             arrayLength = arrayLength * 2;
         }
-        return array[arrayLength];
     }
 
     public void setElement(Object element) {

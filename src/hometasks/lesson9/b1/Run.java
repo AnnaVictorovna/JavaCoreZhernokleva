@@ -3,13 +3,17 @@ package hometasks.lesson9.b1;
 public class Run {
     public static void main(String[] args) {
         Array<Integer> integerArray = new Array();
+        integerArray.setElement(1);
+        integerArray.setElement(2);
         integerArray.setElement(3);
-        integerArray.setElement(2);
-        integerArray.setElement(10);
-        integerArray.setElement(2);
+        integerArray.setElement(4);
+        integerArray.printArray();
+        integerArray.setElement(5);
+        integerArray.setElement(6);
+        integerArray.printArray();
+
 
         integerArray.getElement(2);
-        integerArray.getElement(6);
 
         integerArray.getIndex(2);
         integerArray.getIndex(111);
