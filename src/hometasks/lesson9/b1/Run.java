@@ -11,17 +11,18 @@ public class Run {
         integerArray.setElement(5);
         integerArray.setElement(6);
         integerArray.printArray();
+        //запусті код і посмотрі что в консолі отобразілось. так і должно быть?
 
 
-        integerArray.getElement(2);
-
-        integerArray.getIndex(2);
-        integerArray.getIndex(111);
-
-        integerArray.contains(2);
-        integerArray.contains("aa");
-
-        integerArray.printArray();
+//        integerArray.getElement(2);
+//
+//        integerArray.getIndex(2);
+//        integerArray.getIndex(111);
+//
+//        integerArray.contains(2);
+//        integerArray.contains("aa");
+//
+//        integerArray.printArray();
 
     }
 }
