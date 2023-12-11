@@ -17,6 +17,8 @@ public class ArrayListForRainbowColors {
     }
 }
 
+// лучше вынести как отдельный класс, а не внутренний.
+// Чтобы была возможность в будущем переиспользовать его.
 enum Colors {
     RED,
     ORANGE,
