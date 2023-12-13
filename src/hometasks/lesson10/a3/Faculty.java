@@ -7,8 +7,19 @@ public class Faculty {
     String nameOfFaculty;
     List<Group> groups = new ArrayList<>();
 
-    public Faculty(String nameOfFaculty, List<Group> groups) {
+    public Faculty(String nameOfFaculty) {
         this.nameOfFaculty = nameOfFaculty;
-        this.groups = groups;
+    }
+
+    public void addGroup(Group group) {
+        this.groups.add(group);
+    }
+
+    @Override
+    public String toString() {
+        return "Faculty{" +
+                "nameOfFaculty='" + nameOfFaculty + '\'' +
+                ", groups=" + groups +
+                '}';
     }
 }

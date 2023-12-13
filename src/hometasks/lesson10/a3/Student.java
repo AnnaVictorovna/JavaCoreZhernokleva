@@ -8,5 +8,13 @@ public class Student {
         this.name = name;
         this.averageMark = averageMark;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", averageMark=" + averageMark +
+                '}';
+    }
 }
 

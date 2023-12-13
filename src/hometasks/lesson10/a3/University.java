@@ -8,8 +8,19 @@ public class University {
 
     List<Faculty> faculties = new ArrayList<>();
 
-    public University(String nameOfUniversity, List<Faculty> faculties) {
+    public University(String nameOfUniversity) {
         this.nameOfUniversity = nameOfUniversity;
-        this.faculties = faculties;
+    }
+
+    public void addFaculty(Faculty faculty) {
+        this.faculties.add(faculty);
+    }
+
+    @Override
+    public String toString() {
+        return "University{" +
+                "nameOfUniversity='" + nameOfUniversity + '\'' +
+                ", faculties=" + faculties +
+                '}';
     }
 }

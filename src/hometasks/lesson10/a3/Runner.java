@@ -1,35 +1,45 @@
 package hometasks.lesson10.a3;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Random;
 
 public class Runner {
+    static Random random = new Random();
+
     public static void main(String[] args) {
-        Student kolya = new Student("Kolya", 8.6);
-        Student masha = new Student("masha", 8.9);
-        Student stas = new Student("stas", 8.0);
+        University university = new University("BSU");
+        university.addFaculty(generateFaculty());
 
-        Student peter = new Student("peter", 7.0);
-        Student igor = new Student("igor", 9.1);
-        Student natasha = new Student("natasha", 6.0);
+        System.out.println(university);
+    }
 
-        Student grisha = new Student("grisha", 8.8);
-        Student polya = new Student("polya", 9.0);
-        Student anya = new Student("anya", 8.4);
+    public static Student generateStudent() {
+        String name = "name" + random.nextInt();
+        return new Student(name, random.nextDouble(0, 10));
 
+    }
 
-        List<Student> students1 = new ArrayList<>();
-        students1.add(kolya);
-        students1.add(masha);
-        students1.add(stas);
+    public static Group generateGroup() {
+        return new Group(random.nextInt(0, 15));
+    }
 
-        List<Student> students2 = new ArrayList<>();
+    public static void fillGroup(Group group) {
+        for (int i = 0; i < 3; i++) {
+            group.addStudent(generateStudent());
+        }
+    }
 
-        List<Group> groups = new ArrayList<>();
+    public static Faculty generateFaculty() {
+        String nameOfFaculty = "facultyName" + random.nextInt();
+        return new Faculty(nameOfFaculty);
+    }
 
+    public static void fillFaculty(Faculty faculty) {
+        for (int i = 0; i < 3; i++) {
+            faculty.addGroup(generateGroup());
+        }
+    }
 
-//        Group oneGroup = new Group(1,);
-//        University bstu = new University("BSTU", )
+    public static void fillUniversity(University university) {
 
     }
 }
