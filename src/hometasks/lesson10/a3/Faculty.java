@@ -11,8 +11,9 @@ public class Faculty {
         this.nameOfFaculty = nameOfFaculty;
     }
 
-    public void addGroup(Group group) {
+    public Group addGroup(Group group) {
         this.groups.add(group);
+        return group;
     }
 
     @Override
@@ -21,5 +22,6 @@ public class Faculty {
                 "nameOfFaculty='" + nameOfFaculty + '\'' +
                 ", groups=" + groups +
                 '}';
+
     }
 }

@@ -5,15 +5,15 @@ import java.util.List;
 
 public class University {
     String nameOfUniversity;
-
     List<Faculty> faculties = new ArrayList<>();
 
     public University(String nameOfUniversity) {
         this.nameOfUniversity = nameOfUniversity;
     }
 
-    public void addFaculty(Faculty faculty) {
+    public Faculty addFaculty(Faculty faculty) {
         this.faculties.add(faculty);
+        return faculty;
     }
 
     @Override

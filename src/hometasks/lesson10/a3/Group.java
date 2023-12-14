@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Group {
     int numberOfGroup;
-
     List<Student> students = new ArrayList<>();
 
     public Group(int numberOfGroup) {
@@ -13,8 +12,9 @@ public class Group {
 
     }
 
-    public void addStudent(Student student) {
+    public Student addStudent(Student student) {
         this.students.add(student);
+        return student;
     }
 
     @Override

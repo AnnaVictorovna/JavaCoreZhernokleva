@@ -1,21 +1,26 @@
 package hometasks.lesson10.a3;
 
+import java.util.OptionalDouble;
 import java.util.Random;
 
 public class Runner {
     static Random random = new Random();
-
     public static void main(String[] args) {
         University university = new University("BSU");
-        university.addFaculty(generateFaculty());
-
+        fillFaculty(university.addFaculty(generateFaculty()));
         System.out.println(university);
+        System.out.println(Student.marks);
+        OptionalDouble average = Student.marks
+                .stream()
+                .mapToDouble(a -> a)
+                .average();
+        System.out.println(average);
+
     }
 
     public static Student generateStudent() {
-        String name = "name" + random.nextInt();
+        String name = "StudentName" + random.nextInt(1, 30);
         return new Student(name, random.nextDouble(0, 10));
-
     }
 
     public static Group generateGroup() {
@@ -29,18 +34,14 @@ public class Runner {
     }
 
     public static Faculty generateFaculty() {
-        String nameOfFaculty = "facultyName" + random.nextInt();
+        String nameOfFaculty = "facultyName" + random.nextInt(0, 10);
         return new Faculty(nameOfFaculty);
     }
 
     public static void fillFaculty(Faculty faculty) {
         for (int i = 0; i < 3; i++) {
-            faculty.addGroup(generateGroup());
+            fillGroup(faculty.addGroup(generateGroup()));
         }
-    }
-
-    public static void fillUniversity(University university) {
-
     }
 }
 /*Создать класс Student который будет хранить в себе имя и средний
