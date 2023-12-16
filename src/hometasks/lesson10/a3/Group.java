@@ -17,6 +17,14 @@ public class Group {
         return student;
     }
 
+    public List<Double> getAllMarksGroup() {
+        List<Double> marks = new ArrayList<>();
+        for (Student student : students) {
+            marks.add(student.averageMark);
+        }
+        return marks;
+    }
+
     @Override
     public String toString() {
         return "\n\t\t\t\tGroup{" +

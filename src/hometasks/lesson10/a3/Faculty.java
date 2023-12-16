@@ -16,6 +16,14 @@ public class Faculty {
         return group;
     }
 
+    public List<Double> getAllMarksFaculty() {
+        List<Double> marks = new ArrayList<>();
+        for (Group group : groups) {
+            marks.addAll(group.getAllMarksGroup());
+        }
+        return marks;
+    }
+
     @Override
     public String toString() {
         return "\n\t\tFaculty{" +

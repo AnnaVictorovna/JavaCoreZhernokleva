@@ -1,20 +1,18 @@
 package hometasks.lesson10.a3;
 
-import java.util.OptionalDouble;
+import java.util.List;
 import java.util.Random;
 
 public class Runner {
     static Random random = new Random();
+
     public static void main(String[] args) {
         University university = new University("BSU");
         fillFaculty(university.addFaculty(generateFaculty()));
         System.out.println(university);
-        System.out.println(Student.marks);
-        OptionalDouble average = Student.marks
-                .stream()
-                .mapToDouble(a -> a)
-                .average();
-        System.out.println(average);
+        List<Double> allMarksUniversity = university.getAllMarksUniversity();
+        System.out.println(allMarksUniversity);
+        System.out.println("Средняя оценка по университету = " + calculateAverageMarks(allMarksUniversity));
 
     }
 
@@ -24,7 +22,11 @@ public class Runner {
     }
 
     public static double generateMark() {
-        return Math.round(random.nextDouble(2, 10) * 10) / 10.0;
+        return roundMark(random.nextDouble(2, 10));
+    }
+
+    public static double roundMark(double mark) {
+        return Math.round(mark * 10) / 10.0;
     }
 
     public static Group generateGroup() {
@@ -46,6 +48,14 @@ public class Runner {
         for (int i = 0; i < 3; i++) {
             fillGroup(faculty.addGroup(generateGroup()));
         }
+    }
+
+    public static double calculateAverageMarks(List<Double> marks) {
+        double sum = 0;
+        for (Double mark : marks) {
+            sum += mark;
+        }
+        return roundMark(sum / marks.size());
     }
 }
 /*Создать класс Student который будет хранить в себе имя и средний

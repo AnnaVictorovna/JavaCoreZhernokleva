@@ -16,6 +16,14 @@ public class University {
         return faculty;
     }
 
+    public List<Double> getAllMarksUniversity() {
+        List<Double> marks = new ArrayList<>();
+        for (Faculty faculty : faculties) {
+            marks.addAll(faculty.getAllMarksFaculty());
+        }
+        return marks;
+    }
+
     @Override
     public String toString() {
         return "University{" +
