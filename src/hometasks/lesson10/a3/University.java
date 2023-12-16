@@ -5,6 +5,7 @@ import java.util.List;
 
 public class University {
     String nameOfUniversity;
+
     List<Faculty> faculties = new ArrayList<>();
 
     public University(String nameOfUniversity) {
@@ -23,12 +24,11 @@ public class University {
         }
         return marks;
     }
-
     @Override
     public String toString() {
         return "University{" +
                 "nameOfUniversity='" + nameOfUniversity + '\'' +
-                "\n\tfaculties=" + faculties +
-                "\n}";
+                ", \n faculties=" + faculties +
+                '}';
     }
 }
