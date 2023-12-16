@@ -20,7 +20,11 @@ public class Runner {
 
     public static Student generateStudent() {
         String name = "StudentName" + random.nextInt(1, 30);
-        return new Student(name, random.nextDouble(0, 10));
+        return new Student(name, generateMark());
+    }
+
+    public static double generateMark() {
+        return Math.round(random.nextDouble(2, 10) * 10) / 10.0;
     }
 
     public static Group generateGroup() {
