@@ -20,7 +20,7 @@ public class University {
     public String toString() {
         return "University{" +
                 "nameOfUniversity='" + nameOfUniversity + '\'' +
-                ", faculties=" + faculties +
-                '}';
+                "\n\tfaculties=" + faculties +
+                "\n}";
     }
 }

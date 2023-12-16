@@ -19,9 +19,9 @@ public class Group {
 
     @Override
     public String toString() {
-        return "Group{" +
+        return "\n\t\t\t\tGroup{" +
                 "numberOfGroup=" + numberOfGroup +
-                ", students=" + students +
-                '}';
+                "\n\t\t\t\t\t students=" + students +
+                "\n\t\t\t\t}";
     }
 }

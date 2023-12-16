@@ -18,10 +18,10 @@ public class Faculty {
 
     @Override
     public String toString() {
-        return "Faculty{" +
+        return "\n\t\tFaculty{" +
                 "nameOfFaculty='" + nameOfFaculty + '\'' +
-                ", groups=" + groups +
-                '}';
+                "\n\t\t\tgroups=" + groups +
+                "\n\t\t}";
 
     }
 }

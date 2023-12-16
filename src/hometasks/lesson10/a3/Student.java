@@ -16,7 +16,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "\n\t\t\t\t\t\tStudent{" +
                 "name='" + name + '\'' +
                 ", averageMark=" + averageMark +
                 '}';
