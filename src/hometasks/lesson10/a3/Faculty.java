@@ -26,10 +26,10 @@ public class Faculty {
 
     @Override
     public String toString() {
-        return "\n\t\tFaculty{" +
+        return Tab.T2.getString() + "Faculty{" +
                 "nameOfFaculty='" + nameOfFaculty + '\'' +
-                "\n\t\t\tgroups=" + groups +
-                "\n\t\t}";
+                Tab.T3.getString() + "groups=" + groups +
+                Tab.T2.getString() + "}";
 
     }
 }

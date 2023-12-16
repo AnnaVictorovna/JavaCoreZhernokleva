@@ -27,9 +27,9 @@ public class Group {
 
     @Override
     public String toString() {
-        return "\n\t\t\t\tGroup{" +
+        return Tab.T4.getString() + "Group{" +
                 "numberOfGroup=" + numberOfGroup +
-                "\n\t\t\t\t\t students=" + students +
-                "\n\t\t\t\t}";
+                Tab.T5.getString() + " students=" + students +
+                Tab.T4.getString() + "}";
     }
 }

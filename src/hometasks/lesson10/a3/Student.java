@@ -11,7 +11,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "\n\t\t\t\t\t\t\t" + "Student{" +
+        return Tab.T6.getString() + "Student{" +
                 "name='" + name + '\'' +
                 ", averageMark=" + averageMark +
                 '}';
