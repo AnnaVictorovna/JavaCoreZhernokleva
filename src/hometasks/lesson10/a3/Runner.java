@@ -8,7 +8,8 @@ public class Runner {
 
     public static void main(String[] args) {
         University university = new University("BSU");
-        fillFaculty(university.addFaculty(generateFaculty()));
+        fillUniversity(university);
+//        fillFaculty(university.addFaculty(generateFaculty()));
         System.out.println(university);
         List<Double> allMarksUniversity = university.getAllMarksUniversity();
         System.out.println(allMarksUniversity);
@@ -47,6 +48,12 @@ public class Runner {
     public static void fillFaculty(Faculty faculty) {
         for (int i = 0; i < 3; i++) {
             fillGroup(faculty.addGroup(generateGroup()));
+        }
+    }
+
+    public static void fillUniversity(University university) {
+        for (int i = 0; i < 3; i++) {
+            fillFaculty(university.addFaculty(generateFaculty()));
         }
     }
 
