@@ -8,7 +8,7 @@ public enum Tab {
     T5("\n\t\t\t\t\t"),
     T6("\n\t\t\t\t\t\t"),
     ;
-    String string;
+    String string; // что тут среда разработки подсказывает сделать и почему? исправить и написать объяснение тут.
 
     Tab(String string) {
         this.string = string;
