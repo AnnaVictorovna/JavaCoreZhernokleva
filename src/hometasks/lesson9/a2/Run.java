@@ -4,7 +4,7 @@ public class Run {
     public static void main(String[] args) {
         Array<Integer> integerArray = new Array();
         integerArray.setElement(1, 2);
-        System.out.println(integerArray);                    //ВОПРОС
+        System.out.println(integerArray);                    //ВОПРОС  // и какой?)
         System.out.println(integerArray.getElement(1));
         integerArray.toString();                             //ВОПРОС
 
