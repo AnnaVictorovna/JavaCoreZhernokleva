@@ -12,9 +12,9 @@ public class Group {
 
     }
 
-    public Student addStudent(Student student) {
+    public void addStudent(Student student) {
         this.students.add(student);
-        return student; // а для чего тут нужно возвращать добавляемого студента?
+        // а для чего тут нужно возвращать добавляемого студента?
     }
 
     public List<Double> getAllMarksGroup() {
