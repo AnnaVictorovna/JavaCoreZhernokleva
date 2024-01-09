@@ -5,7 +5,6 @@ import java.util.Random;
 
 public class Runner {
     static Random random = new Random();
-
     public static void main(String[] args) {
         University university = new University("BSU");
         fillUniversity(university);

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class University {
-    String nameOfUniversity;
+    private final String nameOfUniversity;
 
-    List<Faculty> faculties = new ArrayList<>();
+    private final List<Faculty> faculties = new ArrayList<>();
 
     public University(String nameOfUniversity) {
         this.nameOfUniversity = nameOfUniversity;

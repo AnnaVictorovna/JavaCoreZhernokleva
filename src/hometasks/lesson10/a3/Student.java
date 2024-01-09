@@ -2,7 +2,11 @@ package hometasks.lesson10.a3;
 
 public class Student {
     private String name; // все поля классов должны быть c модификатором доступа private
-    double averageMark;
+    private double averageMark;
+
+    public double getAverageMark() {
+        return averageMark;
+    }
 
     public Student(String name, double averageMark) {
         this.name = name;

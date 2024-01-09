@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Group {
-    int numberOfGroup;
-    List<Student> students = new ArrayList<>();
+    private final int numberOfGroup;
+    private final List<Student> students = new ArrayList<>();
 
     public Group(int numberOfGroup) {
         this.numberOfGroup = numberOfGroup;
@@ -20,7 +20,7 @@ public class Group {
     public List<Double> getAllMarksGroup() {
         List<Double> marks = new ArrayList<>();
         for (Student student : students) {
-            marks.add(student.averageMark);
+            marks.add(student.getAverageMark());
         }
         return marks;
     }
