@@ -8,7 +8,6 @@ public class Runner {
     public static void main(String[] args) {
         University university = new University("BSU");
         fillUniversity(university);
-//        fillFaculty(university.addFaculty(generateFaculty()));
         System.out.println(university);
         List<Double> allMarksUniversity = university.getAllMarksUniversity();
         System.out.println(allMarksUniversity);

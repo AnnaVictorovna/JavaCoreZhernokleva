@@ -3,9 +3,9 @@ package hometasks.lesson10.a3;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Group {
-    private final int numberOfGroup;
-    private final List<Student> students = new ArrayList<>();
+class Group {
+    private int numberOfGroup;
+    private List<Student> students = new ArrayList<>();
 
     public Group(int numberOfGroup) {
         this.numberOfGroup = numberOfGroup;

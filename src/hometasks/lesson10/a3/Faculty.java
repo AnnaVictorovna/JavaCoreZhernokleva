@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Faculty {
-    private final String nameOfFaculty;
-    // а почему java посоветовала большую часть полей сделать также final?
-    private final List<Group> groups = new ArrayList<>();
+    private String nameOfFaculty;
+    private List<Group> groups = new ArrayList<>();
 
     public Faculty(String nameOfFaculty) {
         this.nameOfFaculty = nameOfFaculty;
