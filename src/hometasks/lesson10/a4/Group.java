@@ -1,7 +1,26 @@
 package hometasks.lesson10.a4;
 
-public class Group {
+import hometasks.lesson10.a3.Tab;
 
+import java.util.ArrayList;
+import java.util.List;
+
+public class Group {
+    private List<Student> students = new ArrayList<>();
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void addStudent(Student student) {
+        this.students.add(student);
+    }
+
+    public String toString() {
+        return Tab.T4.getString() + "Group{" +
+                Tab.T5.getString() + " students=" + students +
+                Tab.T4.getString() + "}";
+    }
 }
 /*Создать класс Dean, в котором в методе main декан будет проверять
 успеваемость группы студентов своего факультета. Для этого создайте

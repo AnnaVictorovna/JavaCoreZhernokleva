@@ -1,7 +1,26 @@
 package hometasks.lesson10.a4;
 
-public class Student {
+import hometasks.lesson10.a3.Tab;
 
+public class Student {
+    private final double averageMark;
+    private final String studentName;
+
+    public double getAverageMark() {
+        return averageMark;
+    }
+
+    public Student(String studentName, double averageMark) {
+        this.averageMark = averageMark;
+        this.studentName = studentName;
+    }
+
+    public String toString() {
+        return Tab.T6.getString() + "Student{" +
+                "name='" + studentName + '\'' +
+                ", averageMark=" + averageMark +
+                '}';
+    }
 }
 /*Создать класс Dean, в котором в методе main декан будет проверять
 успеваемость группы студентов своего факультета. Для этого создайте
