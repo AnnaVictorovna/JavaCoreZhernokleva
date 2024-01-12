@@ -25,8 +25,7 @@ public class Dean {
         System.out.println(groupOne);
     }
 
-    // Почему в типе возвращаемого значения стоит: hometasks.lesson10.a4.Student? Для чего нужно так писать?
-    public static hometasks.lesson10.a4.Student generateStudent() {
+    public static Student generateStudent() {
         String name = "name" + random.nextInt(1, 40);
         return new Student(name, generateMark());
     }
