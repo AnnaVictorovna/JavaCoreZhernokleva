@@ -16,7 +16,7 @@ public class Student {
     }
 
     public String toString() {
-        return Tab.T6.getString() + "Student{" +
+        return Tab.T3.getString() + "Student{" +
                 "name='" + studentName + '\'' +
                 ", averageMark=" + averageMark +
                 '}';

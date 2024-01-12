@@ -17,9 +17,9 @@ public class Group {
     }
 
     public String toString() {
-        return Tab.T4.getString() + "Group{" +
-                Tab.T5.getString() + " students=" + students +
-                Tab.T4.getString() + "}";
+        return Tab.T1.getString() + "Group{" +
+                Tab.T2.getString() + " students=" + students +
+                Tab.T1.getString() + "}";
     }
 }
 /*Создать класс Dean, в котором в методе main декан будет проверять
