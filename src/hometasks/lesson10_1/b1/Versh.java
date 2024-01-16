@@ -1,10 +1,6 @@
 package hometasks.lesson10_1.b1;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
-public class Run {
+public class Versh {
     public static String versh =
             "Трэба дома бываць часцей,\n" +
                     "Трэба дома бываць не госцем,\n" +
@@ -36,44 +32,4 @@ public class Run {
                     "Каб душою ты стаў чысцей\n" +
                     "І не страціў святое штосьці.\n";
 
-
-    public static void main(String[] args) {
-        String str1 = " \n";
-        String str2 = ".\n";
-        String str3 = ",\n";
-        String str4 = ", ";
-        String str5 = "\n";
-
-        String s = editText(versh, str1, "");
-        String ss = editText(s, str2, " ");
-        String sss = editText(ss, str3, " ");
-        String ssss = editText(sss, str4, " ");
-        String sssss = editText(ssss, str5, " ");
-
-        String stringReadyForSplit = sssss.replaceAll("[!?,.]", " ");
-        String[] newS = stringReadyForSplit.split(" ");
-        System.out.println(Arrays.toString(Arrays.stream(newS).toArray()));
-        System.out.println(getNumbersCount(newS));
-    }
-
-    public static String editText(String stringIWantToEdit, String regex, String replacement) {
-        return stringIWantToEdit.replace(regex, replacement);
-    }
-
-    public static Map<String, Integer> getNumbersCount(String[] words) {
-        Map<String, Integer> result = new HashMap<>();
-        for (String string : words) {
-            Integer current = result.get(string);
-            if (current == null) {
-                result.put(string, 1);
-            } else {
-                result.put(string, ++current);
-            }
-
-        }
-        return result;
-    }
 }
-/*Возьмите текст из класса Versh и подсчитайте частоту встречаемости
-каждого слова. Создайте класс Run и в методе main выведите
-результат подсчётов в формате: слово=частота.*/
