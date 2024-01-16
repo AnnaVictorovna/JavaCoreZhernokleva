@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class Run {
     public static String versh =
-            "Трэба        дома бываць часцей,\n" +
+            "Трэба                дома бываць часцей,\n" +
                     "Трэба дома бываць не госцем,\n" +
                     "Каб душою не ачарсцвець,\n" +
                     "Каб не страціць святое штосьці.\n" +
@@ -38,26 +38,9 @@ public class Run {
 
 
     public static void main(String[] args) {
-        String str1 = " \n";
-        String str2 = ".\n";
-        String str3 = ",\n";
-        String str4 = ", ";
-        String str5 = "\n";
-
-        String s = editText(versh, str1, "");
-        String ss = editText(s, str2, " ");
-        String sss = editText(ss, str3, " ");
-        String ssss = editText(sss, str4, " ");
-        String sssss = editText(ssss, str5, " ");
-
-        String stringReadyForSplit = sssss.replaceAll("[!?,.]", " ");
-        String[] newS = stringReadyForSplit.split(" ");
+        String[] newS = versh.split("\\P{L}+");
         System.out.println(Arrays.toString(Arrays.stream(newS).toArray()));
         System.out.println(getNumbersCount(newS));
-    }
-
-    public static String editText(String stringIWantToEdit, String regex, String replacement) {
-        return stringIWantToEdit.replace(regex, replacement);
     }
 
     public static Map<String, Integer> getNumbersCount(String[] words) {
