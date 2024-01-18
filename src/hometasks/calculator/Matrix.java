@@ -3,28 +3,33 @@ package hometasks.calculator;
 import java.util.Arrays;
 
 public class Matrix extends Var {
-    public double[][] value;
-    public Matrix matrix;
-    public String strMatrix;
+    Double[][] result;
 
-    public Matrix(double[][] value) {
-        this.value = value;
+    public Matrix(Double[][] value) {
+        this.result = value;
     }
 
     public Matrix(Matrix matrix) {
-        this.matrix = matrix;
+        this.result = matrix.result;
     }
 
     public Matrix(String strMatrix) {
-        this.strMatrix = strMatrix;
+        this.result = convertStringToMatrixOfDouble(strMatrix);
+    }
+
+    public static Double[][] convertStringToMatrixOfDouble(String string) {
+        String[] vectors = string.substring(2, string.length() - 2).split("\\}\\,\\s\\{");
+        return Arrays.stream(vectors).
+                map(newString -> Arrays.stream(newString.split("\\,\\s")).
+                        map(Double::parseDouble).toArray(Double[]::new)).
+                toArray(Double[][]::new);
+
     }
 
     @Override
     public String toString() {
         return "Matrix{" +
-                "value=" + Arrays.toString(value) +
-                ", matrix=" + matrix +
-                ", strMatrix='" + strMatrix + '\'' +
+                "result=" + result +
                 '}';
     }
 }
@@ -49,5 +54,5 @@ Matrix(String strMatrix)
 2. Для каждого класса переопределите метод toString().
 3. Создайте интерфейс Operation с четырьмя методами для
 сложения, вычитания, умножения, деления значений. Каждый
-метод на вход должен принимать один параметра с типом
+метод на вход должен принимать один параметр с типом
 Scalar, Vector, Matrix и возвращать результат вычисления.*/

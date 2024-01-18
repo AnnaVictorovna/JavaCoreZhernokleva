@@ -1,28 +1,28 @@
 package hometasks.calculator;
 
 public class Scalar extends Var {
-    public double value;
-    public Scalar scalar;
-    public String strScalar;
+    Double result;
 
-    public Scalar(double value) {
-        this.value = value;
+    public Scalar(Double value) {
+        this.result = value;
     }
 
     public Scalar(Scalar scalar) {
-        this.scalar = scalar;
+        this.result = scalar.result;
     }
 
     public Scalar(String strScalar) {
-        this.strScalar = strScalar;
+        this.result = convertStringToDouble(strScalar);
+    }
+
+    public static Double convertStringToDouble(String string) {
+        return Double.parseDouble(string);
     }
 
     @Override
     public String toString() {
         return "Scalar{" +
-                "value=" + value +
-                ", scalar=" + scalar +
-                ", strScalar='" + strScalar + '\'' +
+                "result=" + result +
                 '}';
     }
 }

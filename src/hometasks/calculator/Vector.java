@@ -1,30 +1,38 @@
 package hometasks.calculator;
 
 import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class Vector extends Var {
-    public double[] value;
-    public Vector vector;
-    public String strVector;
+    Double[] result;
 
-    public Vector(double[] value) {
-        this.value = value;
+    public Vector(Double[] value) {
+        this.result = value;
     }
 
     public Vector(Vector vector) {
-        this.vector = vector;
+        this.result = vector.result;
     }
 
     public Vector(String strVector) {
-        this.strVector = strVector;
+        this.result = convertStringToDoubleArray(strVector);
+    }
+
+    public static Double[] convertStringToDoubleArray(String string) {
+        StringTokenizer tokenizer = new StringTokenizer(string);
+        int size = tokenizer.countTokens();
+        Double[] doubleArray = new Double[size];
+        int index = 0;
+        while (tokenizer.hasMoreTokens()) {
+            doubleArray[index++] = Double.parseDouble(tokenizer.nextToken());
+        }
+        return doubleArray;
     }
 
     @Override
     public String toString() {
         return "Vector{" +
-                "value=" + Arrays.toString(value) +
-                ", vector=" + vector +
-                ", strVector='" + strVector + '\'' +
+                "result=" + Arrays.toString(result) +
                 '}';
     }
 }
