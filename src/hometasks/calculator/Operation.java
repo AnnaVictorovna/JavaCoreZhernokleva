@@ -1,8 +1,8 @@
 package hometasks.calculator;
 
-public interface Operation {
-    default Double addition(Double double1, Double double2) {
-        return double1 + double2;
+public interface Operation<T> {
+    default T addition(T double1, T double2) {
+        return null;
     }
 
     default Double subtraction(Double double1, Double double2) {

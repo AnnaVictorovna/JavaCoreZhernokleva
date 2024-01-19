@@ -12,11 +12,7 @@ public class Scalar extends Var {
     }
 
     public Scalar(String strScalar) {
-        this.result = convertStringToDouble(strScalar);
-    }
-
-    public static Double convertStringToDouble(String string) {
-        return Double.parseDouble(string);
+        this.result = Double.parseDouble(strScalar);
     }
 
     @Override
