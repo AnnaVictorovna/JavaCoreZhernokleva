@@ -3,14 +3,18 @@ package hometasks.calculator;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class Var {
-    static Map<String, String> map = new HashMap<>();
+public abstract class Var<Y> {
+    public static Map<String, String> map = new HashMap<>();
 
     public static Map<String, String> saveKeyAndValue(String string) {
-        String[] parts = string.split("=");
-        String before = parts[0];
-        String after = parts[1];
-        map.put(before, after);
+        if (string.equals("printvar")) {
+            System.out.println(map);
+        } else {
+            String[] parts = string.split("=");
+            String before = parts[0];
+            String after = parts[1];
+            map.put(before, after);
+        }
         return map;
     }
 }

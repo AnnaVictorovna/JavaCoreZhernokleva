@@ -1,5 +1,7 @@
 package hometasks.calculator;
 
+import java.util.Map;
+
 public class Scalar extends Var {
     Double result;
 
@@ -13,7 +15,10 @@ public class Scalar extends Var {
 
     public Scalar(String strScalar) {
         saveKeyAndValue(strScalar);
-        this.result = Double.parseDouble(strScalar);
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            this.result = Double.parseDouble(entry.getValue());
+        }
+
     }
 
     @Override
@@ -46,4 +51,10 @@ Matrix(String strMatrix)
 3. Создайте интерфейс Operation с четырьмя методами для
 сложения, вычитания, умножения, деления значений. Каждый
 метод на вход должен принимать один параметра с типом
-Scalar, Vector, Matrix и возвращать результат вычисления.*/
+Scalar, Vector, Matrix и возвращать результат вычисления.
+
+4. Создайте консольную команду для калькулятора printvar, после ввода
+которой в консоль будет выводиться список всех сохранённых
+переменный в формате А=3. В классе Run создайте метод для проверки
+работы консольной команды printvar и в методе main
+продемонстрируйте работу этого метода.*/
