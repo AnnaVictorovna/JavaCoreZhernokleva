@@ -15,6 +15,7 @@ public class Vector extends Var {
     }
 
     public Vector(String strVector) {
+        saveKeyAndValue(strVector);
         this.result = convertStringToDoubleArray(strVector);
     }
 

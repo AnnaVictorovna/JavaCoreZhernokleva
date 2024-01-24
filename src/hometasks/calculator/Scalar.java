@@ -12,6 +12,7 @@ public class Scalar extends Var {
     }
 
     public Scalar(String strScalar) {
+        saveKeyAndValue(strScalar);
         this.result = Double.parseDouble(strScalar);
     }
 

@@ -14,6 +14,7 @@ public class Matrix extends Var {
     }
 
     public Matrix(String strMatrix) {
+        saveKeyAndValue(strMatrix);
         this.result = convertStringToMatrixOfDouble(strMatrix);
     }
 
