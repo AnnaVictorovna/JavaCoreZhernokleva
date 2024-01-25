@@ -1,6 +1,6 @@
 package hometasks.calculator;
 
-import java.util.Arrays;
+import java.util.Map;
 
 public class Matrix extends Var {
     Double[][] result;
@@ -14,17 +14,22 @@ public class Matrix extends Var {
     }
 
     public Matrix(String strMatrix) {
-        saveKeyAndValue(strMatrix);
-        this.result = convertStringToMatrixOfDouble(strMatrix);
+        if (strMatrix.equals("printvar")) {
+            System.out.println(map);
+        } else if (strMatrix.contains("=")) {
+            saveKeyAndValue(strMatrix);
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                this.result = convertStringToMatrixOfDouble(entry.getValue());
+            }
+        } else {
+            this.result = convertStringToMatrixOfDouble(strMatrix);
+        }
     }
 
     public static Double[][] convertStringToMatrixOfDouble(String string) {
-        String[] vectors = string.substring(2, string.length() - 2).split("\\}\\,\\s\\{");
-        return Arrays.stream(vectors).
-                map(newString -> Arrays.stream(newString.split("\\,\\s")).
-                        map(Double::parseDouble).toArray(Double[]::new)).
-                toArray(Double[][]::new);
-
+        String[] strings = string.split("},");
+        Double[][] matrixOfDoubles = new Double[strings.length][];
+        return matrixOfDoubles;
     }
 
     @Override
