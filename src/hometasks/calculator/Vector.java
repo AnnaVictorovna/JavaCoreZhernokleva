@@ -1,12 +1,12 @@
 package hometasks.calculator;
 
 import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.util.Map;
 
 public class Vector extends Var {
-    Double[] result;
+    double[] result;
 
-    public Vector(Double[] value) {
+    public Vector(double[] value) {
         this.result = value;
     }
 
@@ -15,19 +15,23 @@ public class Vector extends Var {
     }
 
     public Vector(String strVector) {
-        saveKeyAndValue(strVector);
-        this.result = convertStringToDoubleArray(strVector);
+        if (strVector.equals("printvar")) {
+            System.out.println(map);
+        } else if (strVector.contains("=")) {
+            saveKeyAndValue(strVector);
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                this.result = convertStringToDoubleArray(entry.getValue());
+            }
+        } else {
+            this.result = convertStringToDoubleArray(strVector);
+        }
     }
 
-    public static Double[] convertStringToDoubleArray(String string) {
-        StringTokenizer tokenizer = new StringTokenizer(string);
-        int size = tokenizer.countTokens();
-        Double[] doubleArray = new Double[size];
-        int index = 0;
-        while (tokenizer.hasMoreTokens()) {
-            doubleArray[index++] = Double.parseDouble(tokenizer.nextToken());
-        }
-        return doubleArray;
+    public static double[] convertStringToDoubleArray(String string) {
+        String string1 = string.replace("{", "");
+        String string2 = string1.replace("}", "");
+        String[] tokens = string2.split(",");
+        return Arrays.stream(tokens).mapToDouble(Double::parseDouble).toArray();
     }
 
     @Override
