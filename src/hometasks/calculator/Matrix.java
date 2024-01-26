@@ -14,17 +14,11 @@ public class Matrix extends Var {
     }
 
     public Matrix(String strMatrix) {
-        if (strMatrix.equals("printvar")) {
-            System.out.println(map);
-        } else if (strMatrix.contains("=")) {
-            saveKeyAndValue(strMatrix);
+        saveKeyAndValue(strMatrix);
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 this.result = convertStringToMatrixOfDouble(entry.getValue());
             }
-        } else {
-            this.result = convertStringToMatrixOfDouble(strMatrix);
         }
-    }
 
     public static Double[][] convertStringToMatrixOfDouble(String string) {
         String[] strings = string.split("},");

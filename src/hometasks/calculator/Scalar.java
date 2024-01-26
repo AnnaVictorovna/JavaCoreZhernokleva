@@ -14,17 +14,10 @@ public class Scalar extends Var {
     }
 
     public Scalar(String strScalar) {
-        if (strScalar.equals("printvar")) {
-            System.out.println(map);
-        } else if (strScalar.contains("=")) {
-            saveKeyAndValue(strScalar);
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                this.result = Double.parseDouble(entry.getValue());
-            }
-        } else {
-            this.result = Double.parseDouble(strScalar);
+        saveKeyAndValue(strScalar);
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            this.result = Double.parseDouble(entry.getValue());
         }
-
     }
 
     @Override

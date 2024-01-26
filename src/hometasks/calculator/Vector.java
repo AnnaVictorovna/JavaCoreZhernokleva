@@ -15,15 +15,9 @@ public class Vector extends Var {
     }
 
     public Vector(String strVector) {
-        if (strVector.equals("printvar")) {
-            System.out.println(map);
-        } else if (strVector.contains("=")) {
-            saveKeyAndValue(strVector);
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                this.result = convertStringToDoubleArray(entry.getValue());
-            }
-        } else {
-            this.result = convertStringToDoubleArray(strVector);
+        saveKeyAndValue(strVector);
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            this.result = convertStringToDoubleArray(entry.getValue());
         }
     }
 
