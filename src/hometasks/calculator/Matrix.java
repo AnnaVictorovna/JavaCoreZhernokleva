@@ -3,9 +3,9 @@ package hometasks.calculator;
 import java.util.Map;
 
 public class Matrix extends Var {
-    Double[][] result;
+    double[][] result;
 
-    public Matrix(Double[][] value) {
+    public Matrix(double[][] value) {
         this.result = value;
     }
 
@@ -15,15 +15,35 @@ public class Matrix extends Var {
 
     public Matrix(String strMatrix) {
         saveKeyAndValue(strMatrix);
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                this.result = convertStringToMatrixOfDouble(entry.getValue());
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            this.result = convertStringToMatrixOfDouble(entry.getValue());
+        }
+    }
+
+    public static double[][] convertStringToMatrixOfDouble(String string) {
+        String[] strings = string.split("},");
+        int count = 0;
+        for (int i = 0; i < strings.length; i++) {
+            while (strings[i].contains(",")) {
+                count++;
             }
         }
+        String[][] stringsMatrix = new String[strings.length][count + 1];
+        for (int i = 0; i < stringsMatrix.length; i++) {
+            for (int j = 0; j < stringsMatrix[i].length; j++) {
+                stringsMatrix[i][j] += strings[i].split(",");
+            }
+        }
+        double[][] stringMatrix = new double[strings.length][count + 1];
+        for (int i = 0; i < stringMatrix.length; i++) {
+            for (int j = 0; j < stringMatrix[i].length; j++) {
+                stringMatrix[i][j] = Double.parseDouble(stringsMatrix[i][j]);
+                System.out.print(stringMatrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+        return stringMatrix;
 
-    public static Double[][] convertStringToMatrixOfDouble(String string) {
-        String[] strings = string.split("},");
-        Double[][] matrixOfDoubles = new Double[strings.length][];
-        return matrixOfDoubles;
     }
 
     @Override
