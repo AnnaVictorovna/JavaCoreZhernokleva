@@ -27,8 +27,7 @@ public class Run {
                         double[][] d2 = Matrix.convertStringToMatrixOfDouble(strings[1]);
                         for (int i = 0; i < d1.length; i++) {
                             for (int j = 0; j < d1[i].length; j++) {
-                                d1[i][j] += d1[i][j] + d2[i][j];
-                                System.out.print(d1[i][j] + " ");
+                                System.out.print(d1[i][j] + d2[i][j] + " ");
                             }
                             System.out.println();
                         }

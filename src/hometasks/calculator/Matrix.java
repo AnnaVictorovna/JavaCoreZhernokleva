@@ -36,11 +36,7 @@ public class Matrix extends Var {
         }
         double[][] stringMatrix = new double[strings.length][count + 1];
         for (int i = 0; i < stringMatrix.length; i++) {
-            for (int j = 0; j < stringMatrix[i].length; j++) {
-                stringMatrix[i][j] = Double.parseDouble(stringsMatrix[i][j]);
-                System.out.print(stringMatrix[i][j] + " ");
-            }
-            System.out.println();
+                stringMatrix[i] = Vector.convertStringToDoubleArray(strings[i]);
         }
         return stringMatrix;
 

@@ -2,9 +2,8 @@ package hometasks.nesterovich5_2.a1;
 
 public class Run {
     public static void main(String[] args) {
-        Car mercedes = new Car();
-        Car bmw = new Car();
-        Car audi = new Car();
+        hometasks.nesterovich5_2.a1.Car mercedes = new hometasks.nesterovich5_2.a1.Car();
+        hometasks.nesterovich5_2.a1.Car bmw = new hometasks.nesterovich5_2.a1.Car();
     }
 }
 /*
