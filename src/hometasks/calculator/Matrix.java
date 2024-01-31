@@ -16,30 +16,18 @@ public class Matrix extends Var {
     public Matrix(String strMatrix) {
         saveKeyAndValue(strMatrix);
         for (Map.Entry<String, String> entry : map.entrySet()) {
-            this.result = convertStringToMatrixOfDouble(entry.getValue());
+            this.result = convertStringToMatrixOfDoubles(entry.getValue());
         }
     }
 
-    public static double[][] convertStringToMatrixOfDouble(String string) {
-        String[] strings = string.split("},");
-        int count = 0;
-        for (int i = 0; i < strings.length; i++) {
-            while (strings[i].contains(",")) {
-                count++;
-            }
+    public static double[][] convertStringToMatrixOfDoubles(String string) {
+        String[] newStrings = string.split("},\\{");
+        double[] doubles = Vector.convertStringToDoubleArray(newStrings[0]);
+        double[][] matrix = new double[newStrings.length][doubles.length];
+        for (int i = 0; i < newStrings.length; i++) {
+            matrix[i] = Vector.convertStringToDoubleArray(newStrings[i]);
         }
-        String[][] stringsMatrix = new String[strings.length][count + 1];
-        for (int i = 0; i < stringsMatrix.length; i++) {
-            for (int j = 0; j < stringsMatrix[i].length; j++) {
-                stringsMatrix[i][j] += strings[i].split(",");
-            }
-        }
-        double[][] stringMatrix = new double[strings.length][count + 1];
-        for (int i = 0; i < stringMatrix.length; i++) {
-                stringMatrix[i] = Vector.convertStringToDoubleArray(strings[i]);
-        }
-        return stringMatrix;
-
+        return matrix;
     }
 
     @Override
