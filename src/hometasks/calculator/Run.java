@@ -20,7 +20,7 @@ public class Run {
 
             } else if (s.contains("+")) {
                 String[] stringsForNumbers = s.split("\\+");
-                if (isStringHasANumber(s, "+")) {
+                if (isStringHasANumber(s, "\\+")) {
                     if (stringsForNumbers[0].contains("{{")) {
                         matrixPlusMatrix(stringsForNumbers);
                     } else if (stringsForNumbers[0].contains("{")) {
