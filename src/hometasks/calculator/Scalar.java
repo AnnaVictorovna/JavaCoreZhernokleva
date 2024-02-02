@@ -2,7 +2,7 @@ package hometasks.calculator;
 
 import java.util.Map;
 
-public class Scalar extends Var {
+public class Scalar extends Var implements Operation {
     Double result;
 
     public Scalar(Double value) {
@@ -25,6 +25,26 @@ public class Scalar extends Var {
         return "Scalar{" +
                 "result=" + result +
                 '}';
+    }
+
+    @Override
+    public Object addition(Object double1) {
+        return null;
+    }
+
+    @Override
+    public Object subtraction(Object double1) {
+        return null;
+    }
+
+    @Override
+    public Object multiplication(Object double1) {
+        return null;
+    }
+
+    @Override
+    public Object division(Object double1) {
+        return null;
     }
 }
 

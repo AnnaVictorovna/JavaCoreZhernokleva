@@ -3,7 +3,7 @@ package hometasks.calculator;
 import java.util.Arrays;
 import java.util.Map;
 
-public class Vector extends Var {
+public class Vector extends Var implements Operation {
     double[] result;
 
     public Vector(double[] value) {
@@ -33,6 +33,26 @@ public class Vector extends Var {
         return "Vector{" +
                 "result=" + Arrays.toString(result) +
                 '}';
+    }
+
+    @Override
+    public Object addition(Object double1) {
+        return null;
+    }
+
+    @Override
+    public Object subtraction(Object double1) {
+        return null;
+    }
+
+    @Override
+    public Object multiplication(Object double1) {
+        return null;
+    }
+
+    @Override
+    public Object division(Object double1) {
+        return null;
     }
 }
 /*1.Создайте классы Scalar, Vector, Matrix, которые

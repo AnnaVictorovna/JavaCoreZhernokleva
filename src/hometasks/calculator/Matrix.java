@@ -2,7 +2,7 @@ package hometasks.calculator;
 
 import java.util.Map;
 
-public class Matrix extends Var {
+public class Matrix extends Var implements Operation {
     double[][] result;
 
     public Matrix(double[][] value) {
@@ -35,6 +35,26 @@ public class Matrix extends Var {
         return "Matrix{" +
                 "result=" + result +
                 '}';
+    }
+
+    @Override
+    public Object addition(Object double1) {
+        return null;
+    }
+
+    @Override
+    public Object subtraction(Object double1) {
+        return null;
+    }
+
+    @Override
+    public Object multiplication(Object double1) {
+        return null;
+    }
+
+    @Override
+    public Object division(Object double1) {
+        return null;
     }
 }
 /*1.Создайте классы Scalar, Vector, Matrix, которые
