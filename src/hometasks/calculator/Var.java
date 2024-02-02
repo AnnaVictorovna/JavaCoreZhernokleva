@@ -2,7 +2,6 @@ package hometasks.calculator;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public abstract class Var {
     public static Map<String, String> map = new HashMap<>();
@@ -21,14 +20,6 @@ public abstract class Var {
         String after = parts[1];
         map.put(before, after);
         return map;
-    }
-
-    public static void startCalculation() {
-        Scanner scanner = new Scanner(System.in);
-        while (!scanner.hasNext("stop")) {
-            String s = scanner.nextLine();
-            workWithScanner(s);
-        }
     }
 
     public static void workWithScanner(String s) {
