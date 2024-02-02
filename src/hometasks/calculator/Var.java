@@ -58,8 +58,7 @@ public abstract class Var {
     }
 
     public static void createTwoVectors(String[] strings) {
-        vectorsOne = Vector.convertStringToDoubleArray(strings[0]);
-        vectorsTwo = Vector.convertStringToDoubleArray(strings[1]);
+
     }
 
     public static void createTwoDoubles(String[] strings) {
@@ -71,10 +70,10 @@ public abstract class Var {
         if (s.matches(".*\\d.*")) {
             if (s.contains("{{")) {
                 createTwoMatrixes(s.split(regex));
-                operationsWithTwoMatriсes();
+                operationsWithTwoMatrices();
             } else if (s.contains("{")) {
-                createTwoVectors(s.split(regex));
-                operationsWithTwoVectors();
+                String[] strings = s.split(regex);
+                operationsWithTwoVectors(new Vector(strings[0]), new Vector(strings[1]));
             } else {
                 createTwoDoubles(s.split(regex));
                 operationsWithTwoDoubles();
@@ -84,10 +83,10 @@ public abstract class Var {
             stringsForKeys = new String[]{Var.map.get(stringsForNumbers[0]), Var.map.get(stringsForNumbers[1])};
             if (stringsForKeys[0].contains("{{")) {
                 createTwoMatrixes(stringsForKeys);
-                operationsWithTwoMatriсes();
+                operationsWithTwoMatrices();
             } else if (stringsForKeys[0].contains("{")) {
                 createTwoVectors(stringsForKeys);
-                operationsWithTwoVectors();
+//                operationsWithTwoVectors();
             } else {
                 createTwoDoubles(stringsForKeys);
                 operationsWithTwoDoubles();
@@ -95,7 +94,7 @@ public abstract class Var {
         }
     }
 
-    public static void operationsWithTwoMatriсes() {
+    public static void operationsWithTwoMatrices() {
         if (regex.equals("\\+")) {
             for (int i = 0; i < matrixOne.length; i++) {
                 for (int j = 0; j < matrixOne[i].length; j++) {
@@ -130,26 +129,18 @@ public abstract class Var {
         }
     }
 
-    public static void operationsWithTwoVectors() {
+    public static void operationsWithTwoVectors(Vector vector1, Vector vector2) {
         if (regex.equals("\\+")) {
-            for (int i = 0; i < vectorsOne.length; i++) {
-                System.out.print(vectorsOne[i] + vectorsTwo[i] + " ");
-            }
+            vector1.addition(vector2);
         }
         if (regex.equals("\\-")) {
-            for (int i = 0; i < vectorsOne.length; i++) {
-                System.out.print(vectorsOne[i] - vectorsTwo[i] + " ");
-            }
+            vector1.subtraction(vector2);
         }
         if (regex.equals("\\*")) {
-            for (int i = 0; i < vectorsOne.length; i++) {
-                System.out.print(vectorsOne[i] * vectorsTwo[i] + " ");
-            }
+            vector1.multiplication(vector2);
         }
         if (regex.equals("\\/")) {
-            for (int i = 0; i < vectorsOne.length; i++) {
-                System.out.print(vectorsOne[i] / vectorsTwo[i] + " ");
-            }
+            vector1.division(vector2);
         }
     }
 

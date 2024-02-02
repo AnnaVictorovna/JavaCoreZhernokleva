@@ -1,10 +1,13 @@
 package hometasks.calculator;
 
 import java.util.Arrays;
-import java.util.Map;
 
-public class Vector extends Var implements Operation {
-    double[] result;
+public class Vector extends Var implements Operation<Var> {
+    private double[] result;
+
+    public double[] getResult() {
+        return result;
+    }
 
     public Vector(double[] value) {
         this.result = value;
@@ -15,10 +18,10 @@ public class Vector extends Var implements Operation {
     }
 
     public Vector(String strVector) {
-        saveKeyAndValue(strVector);
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            this.result = convertStringToDoubleArray(entry.getValue());
-        }
+//        saveKeyAndValue(strVector);  TODO ВЫНЕСТИ ИЗ КОНСТРУКТОРА!
+//        for (Map.Entry<String, String> entry : map.entrySet()) {
+        this.result = convertStringToDoubleArray(strVector);
+//        }
     }
 
     public static double[] convertStringToDoubleArray(String string) {
@@ -36,22 +39,42 @@ public class Vector extends Var implements Operation {
     }
 
     @Override
-    public Object addition(Object double1) {
+    public Var addition(Var value) {
+        if (value instanceof Vector) {
+            for (int i = 0; i < result.length; i++) {
+                System.out.print(result[i] + ((Vector) value).getResult()[i] + " ");
+            }
+        }
         return null;
     }
 
     @Override
-    public Object subtraction(Object double1) {
+    public Var subtraction(Var value) {
+        if (value instanceof Vector) {
+            for (int i = 0; i < result.length; i++) {
+                System.out.print(result[i] - ((Vector) value).getResult()[i] + " ");
+            }
+        }
         return null;
     }
 
     @Override
-    public Object multiplication(Object double1) {
+    public Var multiplication(Var value) {
+        if (value instanceof Vector) {
+            for (int i = 0; i < result.length; i++) {
+                System.out.print(result[i] * ((Vector) value).getResult()[i] + " ");
+            }
+        }
         return null;
     }
 
     @Override
-    public Object division(Object double1) {
+    public Var division(Var value) {
+        if (value instanceof Vector) {
+            for (int i = 0; i < result.length; i++) {
+                System.out.print(result[i] / ((Vector) value).getResult()[i] + " ");
+            }
+        }
         return null;
     }
 }
