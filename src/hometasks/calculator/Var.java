@@ -43,6 +43,7 @@ public abstract class Var {
     }
 
     public static void operationEqually(String s) {
+        saveKeyAndValue(s);
         if (s.contains("}}")) {
             Matrix matrix = new Matrix(s);
         } else if (s.contains("}")) {

@@ -1,7 +1,5 @@
 package hometasks.calculator;
 
-import java.util.Map;
-
 public class Matrix extends Var implements Operation {
     double[][] result;
 
@@ -14,10 +12,9 @@ public class Matrix extends Var implements Operation {
     }
 
     public Matrix(String strMatrix) {
-        saveKeyAndValue(strMatrix);
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            this.result = convertStringToMatrixOfDoubles(entry.getValue());
-        }
+//        saveKeyAndValue(strMatrix);
+//        for (Map.Entry<String, String> entry : map.entrySet()) {
+        this.result = convertStringToMatrixOfDoubles(strMatrix);
     }
 
     public static double[][] convertStringToMatrixOfDoubles(String string) {

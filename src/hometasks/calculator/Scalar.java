@@ -1,7 +1,5 @@
 package hometasks.calculator;
 
-import java.util.Map;
-
 public class Scalar extends Var implements Operation {
     Double result;
 
@@ -14,10 +12,9 @@ public class Scalar extends Var implements Operation {
     }
 
     public Scalar(String strScalar) {
-        saveKeyAndValue(strScalar);
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            this.result = Double.parseDouble(entry.getValue());
-        }
+//        saveKeyAndValue(strScalar);
+//        for (Map.Entry<String, String> entry : map.entrySet()) {
+        this.result = Double.parseDouble(strScalar);
     }
 
     @Override
