@@ -1,7 +1,11 @@
 package hometasks.calculator;
 
-public class Scalar extends Var implements Operation {
-    Double result;
+public class Scalar extends Var implements Operation<Var> {
+    private Double result;
+
+    public Double getResult() {
+        return result;
+    }
 
     public Scalar(Double value) {
         this.result = value;
@@ -25,22 +29,34 @@ public class Scalar extends Var implements Operation {
     }
 
     @Override
-    public Object addition(Object double1) {
+    public Var addition(Var double1) {
+        if (double1 instanceof Scalar) {
+            System.out.println(result + ((Scalar) double1).getResult());
+        }
         return null;
     }
 
     @Override
-    public Object subtraction(Object double1) {
+    public Var subtraction(Var double1) {
+        if (double1 instanceof Scalar) {
+            System.out.println(result - ((Scalar) double1).getResult());
+        }
         return null;
     }
 
     @Override
-    public Object multiplication(Object double1) {
+    public Var multiplication(Var double1) {
+        if (double1 instanceof Scalar) {
+            System.out.println(result * ((Scalar) double1).getResult());
+        }
         return null;
     }
 
     @Override
-    public Object division(Object double1) {
+    public Var division(Var double1) {
+        if (double1 instanceof Scalar) {
+            System.out.println(result / ((Scalar) double1).getResult());
+        }
         return null;
     }
 }

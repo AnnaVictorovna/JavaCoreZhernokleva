@@ -1,7 +1,11 @@
 package hometasks.calculator;
 
-public class Matrix extends Var implements Operation {
-    double[][] result;
+public class Matrix extends Var implements Operation<Var> {
+    private double[][] result;
+
+    public double[][] getResult() {
+        return result;
+    }
 
     public Matrix(double[][] value) {
         this.result = value;
@@ -35,22 +39,54 @@ public class Matrix extends Var implements Operation {
     }
 
     @Override
-    public Object addition(Object double1) {
+    public Var addition(Var matrixOne) {
+        if (matrixOne instanceof Matrix) {
+            for (int i = 0; i < result.length; i++) {
+                for (int j = 0; j < result[i].length; j++) {
+                    System.out.print(result[i][j] + ((Matrix) matrixOne).result[i][j] + " ");
+                }
+                System.out.println();
+            }
+        }
         return null;
     }
 
     @Override
-    public Object subtraction(Object double1) {
+    public Var subtraction(Var matrixOne) {
+        if (matrixOne instanceof Matrix) {
+            for (int i = 0; i < result.length; i++) {
+                for (int j = 0; j < result[i].length; j++) {
+                    System.out.print(result[i][j] - ((Matrix) matrixOne).result[i][j] + " ");
+                }
+                System.out.println();
+            }
+        }
         return null;
     }
 
     @Override
-    public Object multiplication(Object double1) {
+    public Var multiplication(Var matrixOne) {
+        if (matrixOne instanceof Matrix) {
+            for (int i = 0; i < result.length; i++) {
+                for (int j = 0; j < result[i].length; j++) {
+                    System.out.print(result[i][j] * ((Matrix) matrixOne).result[i][j] + " ");
+                }
+                System.out.println();
+            }
+        }
         return null;
     }
 
     @Override
-    public Object division(Object double1) {
+    public Var division(Var matrixOne) {
+        if (matrixOne instanceof Matrix) {
+            for (int i = 0; i < result.length; i++) {
+                for (int j = 0; j < result[i].length; j++) {
+                    System.out.print(result[i][j] / ((Matrix) matrixOne).result[i][j] + " ");
+                }
+                System.out.println();
+            }
+        }
         return null;
     }
 }

@@ -5,13 +5,7 @@ import java.util.Map;
 
 public abstract class Var {
     public static Map<String, String> map = new HashMap<>();
-    static double[][] matrixOne;
-    static double[][] matrixTwo;
-    static double[] vectorsOne;
-    static double[] vectorsTwo;
     static String[] stringsForKeys;
-    static double d1;
-    static double d2;
     static String regex;
 
     public static Map<String, String> saveKeyAndValue(String string) {
@@ -53,80 +47,43 @@ public abstract class Var {
         }
     }
 
-    public static void createTwoMatrixes(String[] strings) {
-        matrixOne = Matrix.convertStringToMatrixOfDoubles(strings[0]);
-        matrixTwo = Matrix.convertStringToMatrixOfDoubles(strings[1]);
-    }
-
-    public static void createTwoVectors(String[] strings) {
-
-    }
-
-    public static void createTwoDoubles(String[] strings) {
-        d1 = Double.parseDouble(strings[0]);
-        d2 = Double.parseDouble(strings[1]);
-    }
-
     public static void separateNumericAndNonNumericString(String s, String regex) {
         if (s.matches(".*\\d.*")) {
             if (s.contains("{{")) {
-                createTwoMatrixes(s.split(regex));
-                operationsWithTwoMatrices();
+                String[] strings = s.split(regex);
+                operationsWithTwoMatrices(new Matrix(strings[0]), new Matrix(strings[1]));
             } else if (s.contains("{")) {
                 String[] strings = s.split(regex);
                 operationsWithTwoVectors(new Vector(strings[0]), new Vector(strings[1]));
             } else {
-                createTwoDoubles(s.split(regex));
-                operationsWithTwoDoubles();
+                String[] strings = s.split(regex);
+                operationsWithTwoDoubles(new Scalar(strings[0]), new Scalar(strings[1]));
             }
         } else {
             String[] stringsForNumbers = s.split(regex);
             stringsForKeys = new String[]{Var.map.get(stringsForNumbers[0]), Var.map.get(stringsForNumbers[1])};
             if (stringsForKeys[0].contains("{{")) {
-                createTwoMatrixes(stringsForKeys);
-                operationsWithTwoMatrices();
+                operationsWithTwoMatrices(new Matrix(stringsForKeys[0]), new Matrix(stringsForKeys[1]));
             } else if (stringsForKeys[0].contains("{")) {
-                createTwoVectors(stringsForKeys);
-//                operationsWithTwoVectors();
+                operationsWithTwoVectors(new Vector(stringsForKeys[0]), new Vector(stringsForKeys[1]));
             } else {
-                createTwoDoubles(stringsForKeys);
-                operationsWithTwoDoubles();
+                operationsWithTwoDoubles(new Scalar(stringsForKeys[0]), new Scalar(stringsForKeys[1]));
             }
         }
     }
 
-    public static void operationsWithTwoMatrices() {
+    public static void operationsWithTwoMatrices(Matrix matrix1, Matrix matrix2) {
         if (regex.equals("\\+")) {
-            for (int i = 0; i < matrixOne.length; i++) {
-                for (int j = 0; j < matrixOne[i].length; j++) {
-                    System.out.print(matrixOne[i][j] + matrixTwo[i][j] + " ");
-                }
-                System.out.println();
-            }
+            matrix1.addition(matrix2);
         }
         if (regex.equals("\\-")) {
-            for (int i = 0; i < matrixOne.length; i++) {
-                for (int j = 0; j < matrixOne[i].length; j++) {
-                    System.out.print(matrixOne[i][j] - matrixTwo[i][j] + " ");
-                }
-                System.out.println();
-            }
+            matrix1.subtraction(matrix2);
         }
         if (regex.equals("\\*")) {
-            for (int i = 0; i < matrixOne.length; i++) {
-                for (int j = 0; j < matrixOne[i].length; j++) {
-                    System.out.print(matrixOne[i][j] * matrixTwo[i][j] + " ");
-                }
-                System.out.println();
-            }
+            matrix1.multiplication(matrix2);
         }
         if (regex.equals("\\/")) {
-            for (int i = 0; i < matrixOne.length; i++) {
-                for (int j = 0; j < matrixOne[i].length; j++) {
-                    System.out.print(matrixOne[i][j] / matrixTwo[i][j] + " ");
-                }
-                System.out.println();
-            }
+            matrix1.division(matrix2);
         }
     }
 
@@ -145,18 +102,18 @@ public abstract class Var {
         }
     }
 
-    public static void operationsWithTwoDoubles() {
+    public static void operationsWithTwoDoubles(Scalar scalar1, Scalar scalar2) {
         if (regex.equals("\\+")) {
-            System.out.println(d1 + d2);
+            scalar1.addition(scalar2);
         }
         if (regex.equals("\\-")) {
-            System.out.println(d1 - d2);
+            scalar1.subtraction(scalar2);
         }
         if (regex.equals("\\*")) {
-            System.out.println(d1 * d2);
+            scalar1.multiplication(scalar2);
         }
         if (regex.equals("\\/")) {
-            System.out.println(d1 / d2);
+            scalar1.division(scalar2);
         }
     }
 }
