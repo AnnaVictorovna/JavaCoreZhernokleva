@@ -1,7 +1,19 @@
 package hometasks.lesson11.a;
 
+import java.util.Random;
+
 public class Run {
     public static void main(String[] args) {
+        Random random = new Random();
+        int mark = random.nextInt(0, 10);
+        try {
+            if (mark < 4) {
+                throw new StudentException("Студент не сдал");
+            }
+        } catch (StudentException e) {
+            System.out.println(e.getMessage() + ", потому что оценка = " + mark);
+
+        }
 
     }
 }
