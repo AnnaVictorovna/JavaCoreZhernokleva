@@ -10,6 +10,7 @@ public class Run {
             if (mark < 4) {
                 throw new StudentException("Студент не сдал");
             }
+
         } catch (StudentException e) {
             System.out.println(e.getMessage() + ", потому что оценка = " + mark);
 
