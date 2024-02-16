@@ -38,6 +38,7 @@ public abstract class Var {
 
     public static void operationEqually(String s) {
         saveKeyAndValue(s);
+        // для чего нужны строчки ниже?
         if (s.contains("}}")) {
             Matrix matrix = new Matrix(s);
         } else if (s.contains("}")) {
