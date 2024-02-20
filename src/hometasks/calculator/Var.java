@@ -20,31 +20,18 @@ public abstract class Var {
         if (s.contains("printvar")) {
             System.out.println("Коллекция хранит в себе элементы:" + Var.map);
         } else if (s.contains("=")) {
-            operationEqually(s);
-        } else if (s.contains("+")) {
-            regex = "\\+";
-            separateNumericAndNonNumericString(s, regex);
-        } else if (s.contains("-")) {
-            regex = "\\-";
-            separateNumericAndNonNumericString(s, regex);
-        } else if (s.contains("*")) {
-            regex = "\\*";
-            separateNumericAndNonNumericString(s, regex);
-        } else if (s.contains("/")) {
-            regex = "\\/";
-            separateNumericAndNonNumericString(s, regex);
-        }
-    }
-
-    public static void operationEqually(String s) {
-        saveKeyAndValue(s);
-        // для чего нужны строчки ниже?
-        if (s.contains("}}")) {
-            Matrix matrix = new Matrix(s);
-        } else if (s.contains("}")) {
-            Vector vector = new Vector(s);
+            saveKeyAndValue(s);
         } else {
-            Scalar scalar = new Scalar(s);
+            if (s.contains("+")) {
+                regex = "\\+";
+            } else if (s.contains("-")) {
+                regex = "\\-";
+            } else if (s.contains("*")) {
+                regex = "\\*";
+            } else if (s.contains("/")) {
+                regex = "\\/";
+            }
+            separateNumericAndNonNumericString(s, regex);
         }
     }
 
