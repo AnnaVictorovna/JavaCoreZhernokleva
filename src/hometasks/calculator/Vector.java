@@ -2,7 +2,7 @@ package hometasks.calculator;
 
 import java.util.Arrays;
 
-public class Vector extends Var implements Operation<Var> {
+public class Vector extends Var {
     private double[] result;
 
     public double[] getResult() {
@@ -35,7 +35,6 @@ public class Vector extends Var implements Operation<Var> {
                 '}';
     }
 
-    @Override
     public Var addition(Var value) {
         if (value instanceof Vector) {
             for (int i = 0; i < result.length; i++) {
@@ -45,7 +44,6 @@ public class Vector extends Var implements Operation<Var> {
         return null;
     }
 
-    @Override
     public Var subtraction(Var value) {
         if (value instanceof Vector) {
             for (int i = 0; i < result.length; i++) {
@@ -55,7 +53,6 @@ public class Vector extends Var implements Operation<Var> {
         return null;
     }
 
-    @Override
     public Var multiplication(Var value) {
         if (value instanceof Vector) {
             for (int i = 0; i < result.length; i++) {
@@ -65,7 +62,6 @@ public class Vector extends Var implements Operation<Var> {
         return null;
     }
 
-    @Override
     public Var division(Var value) {
         if (value instanceof Vector) {
             for (int i = 0; i < result.length; i++) {

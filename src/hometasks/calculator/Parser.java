@@ -5,10 +5,9 @@ public class Parser {
         if (stringFromUser.contains("printvar")) {
             System.out.println("Коллекция хранит в себе элементы:" + Var.map);
         } else {
-            String[] parts = stringFromUser.split("=");//TODO add + - / *
+            String[] parts = stringFromUser.split("[-+/*=]");
             Var var1 = Var.convertStringToVar(parts[0]);
             Var var2 = Var.convertStringToVar(parts[1]);
-//            Var.saveKeyAndValue(stringFromUser);
             if (stringFromUser.contains("+")) {
                 var1.addition(var2);
             } else if (stringFromUser.contains("-")) {

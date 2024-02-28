@@ -7,7 +7,7 @@ public class Run {
         Scanner scanner = new Scanner(System.in);
         while (!scanner.hasNext("stop")) {
             String s = scanner.nextLine();
-            Var.workWithScanner(s);
+            Parser.calculate(s);
         }
     }
 }

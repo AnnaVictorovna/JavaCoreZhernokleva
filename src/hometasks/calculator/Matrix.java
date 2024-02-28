@@ -1,6 +1,6 @@
 package hometasks.calculator;
 
-public class Matrix extends Var implements Operation<Var> {
+public class Matrix extends Var {
     private double[][] result;
 
     public double[][] getResult() {
@@ -19,7 +19,7 @@ public class Matrix extends Var implements Operation<Var> {
         this.result = convertStringToMatrixOfDoubles(strMatrix);
     }
 
-    public static double[][] convertStringToMatrixOfDoubles(String string) {
+    private static double[][] convertStringToMatrixOfDoubles(String string) {
         String[] newStrings = string.split("},\\{");
         double[] doubles = Vector.convertStringToDoubleArray(newStrings[0]);
         double[][] matrix = new double[newStrings.length][doubles.length];
@@ -36,7 +36,6 @@ public class Matrix extends Var implements Operation<Var> {
                 '}';
     }
 
-    @Override
     public Var addition(Var matrixOne) {
         if (matrixOne instanceof Matrix) {
             for (int i = 0; i < result.length; i++) {
@@ -49,7 +48,6 @@ public class Matrix extends Var implements Operation<Var> {
         return null;
     }
 
-    @Override
     public Var subtraction(Var matrixOne) {
         if (matrixOne instanceof Matrix) {
             for (int i = 0; i < result.length; i++) {
@@ -62,7 +60,6 @@ public class Matrix extends Var implements Operation<Var> {
         return null;
     }
 
-    @Override
     public Var multiplication(Var matrixOne) {
         if (matrixOne instanceof Matrix) {
             for (int i = 0; i < result.length; i++) {
@@ -75,7 +72,6 @@ public class Matrix extends Var implements Operation<Var> {
         return null;
     }
 
-    @Override
     public Var division(Var matrixOne) {
         if (matrixOne instanceof Matrix) {
             for (int i = 0; i < result.length; i++) {
