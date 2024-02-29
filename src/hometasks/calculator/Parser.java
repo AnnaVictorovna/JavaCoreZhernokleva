@@ -8,7 +8,9 @@ public class Parser {
             String[] parts = stringFromUser.split("[-+/*=]");
             Var var1 = Var.convertStringToVar(parts[0]);
             Var var2 = Var.convertStringToVar(parts[1]);
-            if (stringFromUser.contains("+")) {
+            if (stringFromUser.contains("=")) {
+                Var.saveKeyAndValue(stringFromUser);
+            } else if (stringFromUser.contains("+")) {
                 var1.addition(var2);
             } else if (stringFromUser.contains("-")) {
                 var1.subtraction(var2);
