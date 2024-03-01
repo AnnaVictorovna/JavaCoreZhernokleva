@@ -19,14 +19,6 @@ public class Scalar extends Var {
         this.result = Double.parseDouble(strScalar);
     }
 
-    @Override
-    public String toString() {
-        return "Scalar{" +
-                "result=" + result +
-                '}';
-    }
-
-
     public Var addition(Var double1) {
         if (double1 instanceof Scalar) {
             System.out.println(result + ((Scalar) double1).getResult());
@@ -56,5 +48,12 @@ public class Scalar extends Var {
             System.out.println(result / ((Scalar) double1).getResult());
         }
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Scalar{" +
+                "result=" + result +
+                '}';
     }
 }

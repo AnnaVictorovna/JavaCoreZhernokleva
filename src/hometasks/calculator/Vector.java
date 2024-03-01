@@ -28,13 +28,6 @@ public class Vector extends Var {
         return Arrays.stream(tokens).mapToDouble(Double::parseDouble).toArray();
     }
 
-    @Override
-    public String toString() {
-        return "Vector{" +
-                "result=" + Arrays.toString(result) +
-                '}';
-    }
-
     public Var addition(Var value) {
         if (value instanceof Vector) {
             for (int i = 0; i < result.length; i++) {
@@ -69,5 +62,12 @@ public class Vector extends Var {
             }
         }
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Vector{" +
+                "result=" + Arrays.toString(result) +
+                '}';
     }
 }

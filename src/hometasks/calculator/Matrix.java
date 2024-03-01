@@ -1,5 +1,7 @@
 package hometasks.calculator;
 
+import java.util.Arrays;
+
 public class Matrix extends Var {
     private double[][] result;
 
@@ -27,13 +29,6 @@ public class Matrix extends Var {
             matrix[i] = Vector.convertStringToDoubleArray(newStrings[i]);
         }
         return matrix;
-    }
-
-    @Override
-    public String toString() {
-        return "Matrix{" +
-                "result=" + result +
-                '}';
     }
 
     public Var addition(Var matrixOne) {
@@ -82,5 +77,12 @@ public class Matrix extends Var {
             }
         }
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Matrix{" +
+                "result=" + Arrays.toString(result) +
+                '}';
     }
 }
