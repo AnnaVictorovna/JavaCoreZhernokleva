@@ -3,21 +3,16 @@ package hometasks.calculator;
 public class Parser {
     public static void calculate(String stringFromUser) {
         if (stringFromUser.contains("printvar")) {
-            System.out.println("Коллекция хранит в себе элементы:" + Var.map);
+            System.out.println("Коллекция хранит в себе элементы:" + MapWorker.map);
+        } else if (stringFromUser.contains("=")) {
+            MapWorker.saveKeyAndValue(stringFromUser);
         } else {
-            String[] parts = stringFromUser.split("[-+/*=]");
-            Var var1 = Var.convertStringToVar(parts[0]);
-            Var var2 = Var.convertStringToVar(parts[1]);
-            if (stringFromUser.contains("=")) {
-                Var.saveKeyAndValue(stringFromUser);
-            } else if (stringFromUser.contains("+")) {
-                var1.addition(var2);
-            } else if (stringFromUser.contains("-")) {
-                var1.subtraction(var2);
-            } else if (stringFromUser.contains("*")) {
-                var1.multiplication(var2);
-            } else if (stringFromUser.contains("/")) {
-                var1.division(var2);
+            String[] parts = stringFromUser.split("[-+/*]");
+            if (parts[0].matches(".*\\d.*")) {
+                Var.operation(parts, stringFromUser);
+            } else {
+                String[] stringsForKeys = new String[]{MapWorker.map.get(parts[0]), MapWorker.map.get(parts[1])};
+                Var.operation(stringsForKeys, stringFromUser);
             }
         }
     }
