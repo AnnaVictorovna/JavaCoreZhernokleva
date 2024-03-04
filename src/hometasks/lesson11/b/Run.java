@@ -1,8 +1,28 @@
 package hometasks.lesson11.b;
 
+import java.util.Random;
+
 public class Run {
-    public static void main(String[] args) {
+    static int sum;
+
+    public static void main(String[] args) throws InterruptedException {
         BankAccount bankAccount = new BankAccount();
+        Random random = new Random();
+        sum = bankAccount.getBalance();
+        System.out.println("Ваш баланс: " + sum);
+        try {
+            while (sum > 5) {
+                int r = random.nextInt(5, 100);
+                sum = sum - r;
+                System.out.println("Сумма товара: " + r);
+                System.out.println("остаток на счете: " + sum);
+                Thread.sleep(1000);
+            }
+            throw new NotEnoughMoneyException("Not enough money");
+        } catch (NotEnoughMoneyException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
 /*Создайте класс NotEnoughMoneyException, который наследуется от

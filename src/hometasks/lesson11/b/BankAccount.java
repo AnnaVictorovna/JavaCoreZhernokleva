@@ -1,5 +1,9 @@
 package hometasks.lesson11.b;
 
 public class BankAccount {
-    private int balance = 150;
+    private final int BALANCE = 150;
+
+    int getBalance() {
+        return BALANCE;
+    }
 }

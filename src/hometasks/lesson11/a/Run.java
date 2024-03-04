@@ -13,9 +13,7 @@ public class Run {
 
         } catch (StudentException e) {
             System.out.println(e.getMessage() + ", потому что оценка = " + mark);
-
         }
-
     }
 }
 /*Создать класс StudentException и отнаследоваться от класса
