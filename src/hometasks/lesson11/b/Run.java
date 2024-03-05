@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class Run {
     static int sum;
+    static int productsCoast;
 
     public static void main(String[] args) throws InterruptedException {
         BankAccount bankAccount = new BankAccount();
@@ -12,17 +13,18 @@ public class Run {
         System.out.println("Ваш баланс: " + sum);
         try {
             while (sum > 5) {
-                int r = random.nextInt(5, 100);
-                sum = sum - r;
-                System.out.println("Сумма товара: " + r);
-                System.out.println("остаток на счете: " + sum);
-                Thread.sleep(1000);
+                productsCoast = random.nextInt(5, 100);
+                sum = sum - productsCoast;
+                System.out.println("Сумма товара: " + productsCoast);
+                if (sum >= 5) {
+                    System.out.println("остаток на счете: " + sum);
+                }
             }
-            throw new NotEnoughMoneyException("Not enough money");
+            throw new NotEnoughMoneyException("Нельзя совершить покупку");
         } catch (NotEnoughMoneyException e) {
-            System.out.println(e.getMessage());
+            sum = sum + productsCoast;
+            System.err.println(e.getMessage() + ", потому что товар стоит " + productsCoast + ", а остаток на счете: " + sum);
         }
-
     }
 }
 /*Создайте класс NotEnoughMoneyException, который наследуется от
