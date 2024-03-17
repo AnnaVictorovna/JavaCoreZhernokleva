@@ -3,6 +3,7 @@ package hometasks.lesson11.b;
 import java.util.Random;
 
 public class Run {
+    private static final int MIN_PRODUCTS_COAST = 5;
     static int sum;
     static int productsCoast;
 
@@ -12,11 +13,11 @@ public class Run {
         sum = bankAccount.getBalance();
         System.out.println("Ваш баланс: " + sum);
         try {
-            while (sum > 5) {
-                productsCoast = random.nextInt(5, 100);
+            while (sum > MIN_PRODUCTS_COAST) {
+                productsCoast = random.nextInt(MIN_PRODUCTS_COAST, 100);
                 sum = sum - productsCoast;
                 System.out.println("Сумма товара: " + productsCoast);
-                if (sum >= 5) {
+                if (sum >= MIN_PRODUCTS_COAST) {
                     System.out.println("остаток на счете: " + sum);
                 }
             }
