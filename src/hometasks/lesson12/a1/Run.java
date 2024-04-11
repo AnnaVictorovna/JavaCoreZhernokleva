@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.Writer;
 
 public class Run {
-    private static final String FILE_PATH = "src/hometasks/lesson12/a1/versh.txt";
+    public static final String FILE_PATH = "src/hometasks/lesson12/a1/versh.txt";
     public static void main(String[] args) {
         writeStringInFile(Versh.versh, FILE_PATH);
     }
