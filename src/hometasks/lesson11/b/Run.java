@@ -7,6 +7,7 @@ public class Run {
     static int sum;
     static int productsCoast;
 
+
     public static void main(String[] args) throws InterruptedException {
         BankAccount bankAccount = new BankAccount();
         Random random = new Random();
