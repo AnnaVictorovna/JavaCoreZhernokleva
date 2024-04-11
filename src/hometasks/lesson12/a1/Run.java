@@ -1,12 +1,13 @@
-package hometasks.lesson12.a;
+package hometasks.lesson12.a1;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 
 public class Run {
+    private static final String FILE_PATH = "src/hometasks/lesson12/a1/versh.txt";
     public static void main(String[] args) {
-        writeStringInFile(Versh.versh, "F:\\Zhernokleva\\JavaCoreZhernokleva\\src\\hometasks\\lesson12\\a\\versh.txt");
+        writeStringInFile(Versh.versh, FILE_PATH);
     }
 
     private static void writeStringInFile(String text, String fileName) {

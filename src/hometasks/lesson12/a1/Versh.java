@@ -1,4 +1,4 @@
-package hometasks.lesson12.a;
+package hometasks.lesson12.a1;
 
 public class Versh {
     public static String versh = "Трэба дома бываць часцей,\n" +
