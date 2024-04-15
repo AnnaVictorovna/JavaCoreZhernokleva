@@ -4,7 +4,7 @@ import hometasks.lesson12.a1.Versh;
 
 public class Run {
     public static final String FILE_PATH = "src/hometasks/lesson12/b1/versh.txt";
-    public static final String BUF_FILE_PATH = "src/hometasks/lesson12/b1/bufVersh";
+    public static final String BUF_FILE_PATH = "src/hometasks/lesson12/b1/bufVersh.txt";
 
     public static void main(String[] args) {
         long start = System.nanoTime();
