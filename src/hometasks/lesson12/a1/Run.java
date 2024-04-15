@@ -10,7 +10,7 @@ public class Run {
         writeStringInFile(Versh.versh, FILE_PATH);
     }
 
-    private static void writeStringInFile(String text, String fileName) {
+    public static void writeStringInFile(String text, String fileName) {
         try (Writer fileWriter = new FileWriter(fileName)) {
             for (int i = 0; i < text.length(); i++) {
                 fileWriter.write(text.charAt(i));

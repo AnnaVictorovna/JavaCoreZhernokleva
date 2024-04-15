@@ -8,11 +8,11 @@ import java.io.Reader;
 
 public class Runn {
     public static void main(String[] args) {
-        readText();
+        readText(Run.FILE_PATH);
     }
 
-    private static void readText() {
-        try (Reader fileReader = new FileReader(Run.FILE_PATH)) {
+    public static void readText(String filePath) {
+        try (Reader fileReader = new FileReader(filePath)) {
             int code;
             while ((code = fileReader.read()) != -1) {
                 System.out.print(Character.toChars(code));
