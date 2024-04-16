@@ -8,11 +8,12 @@ public class Run {
 
     public static void main(String[] args) {
         long start = System.nanoTime();
-        ReaderAndWriter.writeStringInFile(Versh.versh, FILE_PATH);
+        WriterWithoutBuffer.writeStringInFile(Versh.versh, FILE_PATH);
         long l = System.nanoTime() - start;
         System.out.println(l);
+
         long startBuf = System.nanoTime();
-        ReaderAndWriter.writeStringInFile(Versh.versh, BUF_FILE_PATH);
+        WriterWithBuffer.writeText(Versh.versh, BUF_FILE_PATH);
         long lBuf = System.nanoTime() - startBuf;
         System.out.println(lBuf);
     }

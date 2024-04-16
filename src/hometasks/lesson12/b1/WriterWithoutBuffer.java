@@ -4,7 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 
-public class ReaderAndWriter {
+public class WriterWithoutBuffer {
     public static void writeStringInFile(String text, String fileName) {
         try (Writer fileWriter = new FileWriter(fileName)) {
             for (int i = 0; i < text.length(); i++) {
