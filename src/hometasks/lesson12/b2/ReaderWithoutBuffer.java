@@ -4,7 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 
-public class ReaderAndConsolePrinter {
+public class ReaderWithoutBuffer {
     public static void readText(String filePath) {
         try (Reader fileReader = new FileReader(filePath)) {
             int code;
