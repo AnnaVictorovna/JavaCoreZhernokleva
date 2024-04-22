@@ -6,7 +6,6 @@ public class Run {
         WriterInFile.writeStringInFile("zord");
         WriterInFile.writeStringInFile("lord");
         ReaderFromFile.readTex(WriterInFile.FILE_PATH);
-
     }
 }
 /*Напишите метод, который принимает на вход строку и записывает её в
