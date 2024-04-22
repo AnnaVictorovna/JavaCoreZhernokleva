@@ -1,8 +1,6 @@
 package hometasks.lesson12.b3;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
+import java.io.*;
 
 public class ReaderFromFile {
 
@@ -13,6 +11,8 @@ public class ReaderFromFile {
             while ((code = fileReader.read()) != -1) {
                 System.out.print(Character.toChars(code));
             }
+            Writer fileWriter = new FileWriter(path);
+            fileWriter.write("");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
