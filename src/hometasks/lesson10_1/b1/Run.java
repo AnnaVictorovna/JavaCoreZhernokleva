@@ -38,7 +38,7 @@ public class Run {
 
 
     public static void main(String[] args) {
-        String[] newS = versh.split("\\P{L}+");
+        String[] newS = versh.split("\\P{L}+"); // get words from text
         System.out.println(Arrays.toString(Arrays.stream(newS).toArray()));
         System.out.println(getNumbersCount(newS));
     }
