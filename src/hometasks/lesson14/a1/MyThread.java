@@ -1,6 +1,8 @@
 package hometasks.lesson14.a1;
 
 public class MyThread extends Thread {
+    public void run() {
+    }
 }
 /*Создайте класс MyThread который наследуется от Thread. Создайте
 класс Run и в методе main напишите код в котором запускается новый
