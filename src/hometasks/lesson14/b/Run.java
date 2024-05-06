@@ -1,7 +1,7 @@
 package hometasks.lesson14.b;
 
 public class Run {
-    static Integer pushesNumber = 1;
+    static int pushesNumber = 1;
 
     public static void main(String[] args) {
         while (pushesNumber < 21) {
@@ -18,7 +18,7 @@ public class Run {
 
     static synchronized void pushing() {
         if (pushesNumber < 21) {
-            System.out.println(Thread.currentThread().getName() + pushesNumber);
+            System.out.println(Thread.currentThread().getName() + " " + pushesNumber);
             pushesNumber++;
         }
     }
