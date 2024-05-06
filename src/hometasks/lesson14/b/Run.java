@@ -11,8 +11,6 @@ public class Run {
             playerOne.setName("playerOne");
             playerOne.start();
             playerTwo.start();
-            playerTwo.interrupt();
-            playerOne.interrupt();
         }
     }
 
