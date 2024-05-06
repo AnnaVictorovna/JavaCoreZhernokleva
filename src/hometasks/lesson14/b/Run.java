@@ -1,29 +1,25 @@
 package hometasks.lesson14.b;
 
-import java.util.Random;
-
 public class Run {
+    static Integer pushesNumber = 1;
+
     public static void main(String[] args) {
-        Runnable runnable = () -> {
-            try {
-                printPushes();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        };
-        Thread one = new Thread(runnable);
-        one.start();
-        Thread second = new Thread(runnable);
-        second.start();
+        while (pushesNumber < 21) {
+            Thread playerOne = new Thread(Run::pushing);
+            Thread playerTwo = new Thread(Run::pushing);
+            playerTwo.setName("playerTwo");
+            playerOne.setName("playerOne");
+            playerOne.start();
+            playerTwo.start();
+            playerTwo.interrupt();
+            playerOne.interrupt();
+        }
     }
 
-
-    private static void printPushes() throws InterruptedException {
-        Random random = new Random();
-        int timeForPush = random.nextInt(100, 500);
-        for (int i = 0; i < 21; i++) {
-            System.out.println(Thread.currentThread().getName() + "    " + i);
-            Thread.sleep(timeForPush);
+    static synchronized void pushing() {
+        if (pushesNumber < 21) {
+            System.out.println(Thread.currentThread().getName() + pushesNumber);
+            pushesNumber++;
         }
     }
 }
