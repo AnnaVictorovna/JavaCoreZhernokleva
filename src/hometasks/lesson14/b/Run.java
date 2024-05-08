@@ -1,23 +1,42 @@
 package hometasks.lesson14.b;
 
 public class Run {
-    static int pushesNumber = 1;
+    static Integer pushNumber = 1;
+    static Thread playerOne = new Thread(Run::playerOneIsPushing);
+    static Thread playerTwo = new Thread(Run::playerTwoIsPushing);
 
     public static void main(String[] args) {
-        while (pushesNumber < 21) {
-            Thread playerOne = new Thread(Run::pushing);
-            Thread playerTwo = new Thread(Run::pushing);
-            playerTwo.setName("playerTwo");
-            playerOne.setName("playerOne");
-            playerOne.start();
-            playerTwo.start();
+        playerOne.setName("Player1");
+        playerTwo.setName("Player2");
+        playerOne.start();
+        playerTwo.start();
+    }
+
+    private static void playerOneIsPushing() {
+        try {
+            while (pushNumber < 20) {
+                synchronized (pushNumber) {
+                    pushNumber.notify();
+                    pushNumber.wait(100);
+                    System.out.println(Thread.currentThread().getName() + " " + pushNumber);
+                    pushNumber++;
+                }
+            }
+        } catch (InterruptedException ignored) {
         }
     }
 
-    static synchronized void pushing() {
-        if (pushesNumber < 21) {
-            System.out.println(Thread.currentThread().getName() + " " + pushesNumber);
-            pushesNumber++;
+    private static void playerTwoIsPushing() {
+        try {
+            while (pushNumber < 20) {
+                synchronized (pushNumber) {
+                    pushNumber.notify();
+                    pushNumber.wait(100);
+                    System.out.println(Thread.currentThread().getName() + " " + pushNumber);
+                    pushNumber++;
+                }
+            }
+        } catch (InterruptedException ignored) {
         }
     }
 }
