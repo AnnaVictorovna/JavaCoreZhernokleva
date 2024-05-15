@@ -1,25 +1,27 @@
 package hometasks.lesson14.b;
 
 public class Run {
-    static Integer pushNumber = 1;
+    volatile static Integer ballPush = 1;
     static Thread playerOne = new Thread(Run::playerOneIsPushing);
     static Thread playerTwo = new Thread(Run::playerTwoIsPushing);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         playerOne.setName("Player1");
         playerTwo.setName("Player2");
         playerOne.start();
         playerTwo.start();
+        playerOne.join();
+        playerTwo.join();
     }
 
     private static void playerOneIsPushing() {
         try {
-            while (pushNumber < 20) {
-                synchronized (pushNumber) {
-                    pushNumber.notify();
-                    pushNumber.wait(100);
-                    System.out.println(Thread.currentThread().getName() + " " + pushNumber);
-                    pushNumber++;
+            while (ballPush < 20) {
+                synchronized (ballPush) {
+                    ballPush.notify();
+                    ballPush.wait(5);
+                    System.out.println(Thread.currentThread().getName() + " " + ballPush);
+                    ballPush++;
                 }
             }
         } catch (InterruptedException ignored) {
@@ -28,12 +30,12 @@ public class Run {
 
     private static void playerTwoIsPushing() {
         try {
-            while (pushNumber < 20) {
-                synchronized (pushNumber) {
-                    pushNumber.notify();
-                    pushNumber.wait(100);
-                    System.out.println(Thread.currentThread().getName() + " " + pushNumber);
-                    pushNumber++;
+            while (ballPush < 20) {
+                synchronized (ballPush) {
+                    ballPush.notify();
+                    ballPush.wait(5);
+                    System.out.println(Thread.currentThread().getName() + " " + ballPush);
+                    ballPush++;
                 }
             }
         } catch (InterruptedException ignored) {
