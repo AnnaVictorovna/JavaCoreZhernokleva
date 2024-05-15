@@ -1,17 +1,27 @@
 package hometasks.lesson14.b;
 
 public class PingPongBall {
-    int pushNumber = 1;
+    private int firstPushNumber;
+    private int lastPushNumber;
 
-    public PingPongBall(int pushNumber) {
-        this.pushNumber = pushNumber;
+    public PingPongBall(int firstPushNumber, int lastPushNumber) {
+        this.firstPushNumber = firstPushNumber;
+        this.lastPushNumber = lastPushNumber;
     }
 
-    public int getPushNumber() {
-        return pushNumber;
+    public int getFirstPushNumber() {
+        return firstPushNumber;
     }
 
-    public void setPushNumber(int pushNumber) {
-        this.pushNumber = pushNumber;
+    public void setFirstPushNumber(int firstPushNumber) {
+        this.firstPushNumber = firstPushNumber;
+    }
+
+    public int getLastPushNumber() {
+        return lastPushNumber;
+    }
+
+    public void setLastPushNumber(int lastPushNumber) {
+        this.lastPushNumber = lastPushNumber;
     }
 }

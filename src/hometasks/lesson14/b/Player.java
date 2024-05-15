@@ -9,12 +9,12 @@ public class Player extends Thread {
 
     public void run() {
         try {
-            while (pingPongBall.getPushNumber() < 20) {
+            while (pingPongBall.getFirstPushNumber() < pingPongBall.getLastPushNumber()) {
                 synchronized (pingPongBall) {
                     pingPongBall.notify();
                     pingPongBall.wait(1);
-                    System.out.println(Thread.currentThread().getName() + " " + pingPongBall.getPushNumber());
-                    pingPongBall.setPushNumber(pingPongBall.getPushNumber() + 1);
+                    System.out.println(Thread.currentThread().getName() + " " + pingPongBall.getFirstPushNumber());
+                    pingPongBall.setFirstPushNumber(pingPongBall.getFirstPushNumber() + 1);
                 }
             }
         } catch (InterruptedException ignored) {

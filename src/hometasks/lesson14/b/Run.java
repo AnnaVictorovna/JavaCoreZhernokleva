@@ -3,7 +3,7 @@ package hometasks.lesson14.b;
 public class Run {
     static Player playerOne = new Player("ilya");
     static Player playerTwo = new Player("anya");
-    volatile static PingPongBall pingPongBall = new PingPongBall(1);
+    volatile static PingPongBall pingPongBall = new PingPongBall(1, 20);
 
     public static void main(String[] args) throws InterruptedException {
         playerOne.start();
